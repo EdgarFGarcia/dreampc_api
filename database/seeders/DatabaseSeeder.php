@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(UserRole::class);
         $this->call(UserSeeder::class);
+        $this->call(ConditionSeeder::class);
     }
 }
