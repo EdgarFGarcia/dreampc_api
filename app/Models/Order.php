@@ -18,6 +18,7 @@ class Order extends Model
         'product_name',
         'manufacturer',
         'item_number',
+        'quantity',
         'total',
         'category_id',
         'created_at',

@@ -22,6 +22,8 @@ class Orders extends Migration
             $table->string('manufacturer');
             $table->string('item_number');
 
+            $table->integer('quantity');
+
             $table->double('total', 10, 4);
 
             $table->bigInteger('category_id');

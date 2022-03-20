@@ -21,7 +21,8 @@ class OrderController extends Controller
         $validation = Validator::make($request->all(), [
             'firstname'     => 'required|string',
             'lastname'      => 'required|string',
-            'product'       => 'required'
+            'product'       => 'required',
+            'quantity'      => 'required|numeric'
         ]);
         if($validation->fails()){
             return response()->json([
@@ -37,7 +38,8 @@ class OrderController extends Controller
             'manufacturer'      => $request->product['manufacturer'],
             'item_number'       => $request->product['item_no'],
             'total'             => $request->product['price'],
-            'category_id'       => $request->product['category']['id']
+            'category_id'       => $request->product['category']['id'],
+            'quantity'          => $request->quantity
         ]);
 
         return response()->json([
