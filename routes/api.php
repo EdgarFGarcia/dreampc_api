@@ -26,12 +26,16 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get('/orders', [App\Http\Controllers\API\OrderController::class, 'orders']);
         Route::post('/addorder', [App\Http\Controllers\API\OrderController::class, 'addorder']);
         Route::delete('/deleteorder/{id?}', [App\Http\Controllers\API\OrderController::class, 'deleteorder']);
+        Route::patch('/marksold/{id?}', [App\Http\Controllers\API\OrderController::class, 'marksold']);
+        Route::patch('/markcancel/{id?}/{pname?}', [App\Http\Controllers\API\OrderController::class, 'markcancel']);
     });
 
     Route::group(['prefix' => 'inventory'], function(){
         Route::get('/get', [App\Http\Controllers\API\InventoryController::class, 'get']);
+        Route::get('/getforder', [App\Http\Controllers\API\InventoryController::class, 'getforder']);
         Route::post('/addinventory', [App\Http\Controllers\API\InventoryController::class, 'addinventory']);
         Route::delete('/deleteinventory/{id?}', [App\Http\Controllers\API\InventoryController::class, 'deleteinventory']);
+        Route::patch('/addqty/{id?}', [App\Http\Controllers\API\InventoryController::class, 'addqty']);
     });
 
     Route::group(['prefix' => 'category'], function(){

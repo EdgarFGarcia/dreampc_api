@@ -16,6 +16,7 @@ class Inventory extends Model
         'item_no',
         'manufacturer',
         'price',
+        'quantity',
         'condition_id',
         'category_id',
         'created_at',
