@@ -60,6 +60,12 @@ class InventoryController extends Controller
 
     public function addqty(Request $request, $id = null){
         Inventory::where('id', $id)->increment('quantity', $request->qty);
+        if(!is_null($request->price)){
+            Inventory::where('id', $id)
+            ->update([
+                'price'     => $request->price
+            ]);
+        }
 
         return response()->json([
             'response'  => true

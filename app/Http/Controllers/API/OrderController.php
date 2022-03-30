@@ -14,7 +14,7 @@ class OrderController extends Controller
     public function orders(){
         return response()->json([
             'response'  => true,
-            'data'      => Order::where('is_sold', 0)->where('is_cancel', 0)->get()
+            'data'      => Order::with('get_category')->where('is_sold', 0)->where('is_cancel', 0)->get()
         ], 200);
     }
 

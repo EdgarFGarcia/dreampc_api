@@ -29,4 +29,8 @@ class Order extends Model
     protected $casts = [
         'created_at'    =>  'datetime:M d, Y'
     ];
+
+    public function get_category(){
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }
